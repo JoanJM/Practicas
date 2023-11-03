@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Ejercicio 1
+        const arrayNumbers = [4,5,-5,0,9,5];
+        let suma = arrayNumbers.reduce(function (s, number) {
+            return s + number;
+        },0)
+        console.log (`The sum of all elements in the array is: ${suma}`);
+
+        // Ejercicio 2
+        const arrayStrings = [["a","b"],[],["sal"],[1,3,5,7,9]];
+        arrayStrings.forEach(function (element,index,array) {
+            let length = element.length;
+            array[index] = length;
+        })
+        console.log(arrayStrings);
+
+        // Ejercicio 3
+        function arrayEven (array) {
+            let arrayEven = array.filter(function(numero) {
+                return numero % 2 === 0;
+            })
+            console.log(arrayEven);
+        }
+        arrayEven([9,3,8,4,5,10,7]);
+        
+        // Ejercicio 4
+        class Person {
+            constructor (name,age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        const persona1 = new Person("Pedrito",45);
+        const persona2 = new Person("Pablito",30);
+        const persona3 = new Person("Pepito",18);
+        const persona4 = new Person("Pochito",99);
+
+        const arrayObjects = [persona1,persona2,persona3,persona4];
+        
+        const olderThan30 = arrayObjects.filter(function (person) {
+            return person.age >= 30;
+        })
+
+        console.log(olderThan30);
+
+        // Ejercicio 5
+        function arrayWithoutDuplicates(array) {
+            const arrayFinal = [];
+           for(let i = 0; i < array.length; i++) {
+                let count = 0;
+                for(let j = i+1; j < array.length; j++) {
+                    if(array[i] === array[j]) count++;                
+                }
+                if (count === 0) arrayFinal.push(array[i]);
+            }
+            return console.log(arrayFinal);
+        }
+
+        arrayWithoutDuplicates(["s",89,89,9,"s","s",9,"a"]);
+
+        // Ejercicio 5
+        function noRepetido (array) {
+            return console.log(new Set(array));
+        }
+        noRepetido(["s",89,89,9,"s","s",9,"a"]);
+
+        // Ejercicio 6
+        function maxAndMin (array) {
+            return console.log(`Max: ${Math.max(...array)} and Min: ${Math.min(...array)}`)
+        }
+
+        maxAndMin([4,7,8,2,98,7,9,4,6]);
+        
+        // Ejercicio 7
+        const ejercicio7 = (array) => {
+            let newArray =[];
+            for (let i = 0; i < array.length; i++) {
+                newArray[i] = array[array.length-1-i];
+            }
+            return newArray;
+        };
+
+        console.log(ejercicio7([1,2,3,4,5]));
+
+        // Ejercicio 8
+        const isIncluded = (array,e) => 
+            (array.includes(e))
+            ? console.log(`'${e}' is included in [${array}]`)
+            : console.log("No included");
+
+        isIncluded(["s","a",2,3,4,6],"s");
+
+
+    </script>
+</body>
+</html>
